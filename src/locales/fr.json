@@ -30,7 +30,7 @@
   "lp_subscribe_button":"Je m'inscris",
   "lp_footer": "Un projet Steemit Inc + Busy",
 
-  "about_steemconnect": "À propos de SteemConnect",
+  "about_steemconnect": "À propos de Utopian",
   "account": "Compte",
   "account_recovered": "Le compte @{account} a été récupéré",
   "account_to_recover": "Compte à récupérer",
@@ -155,7 +155,7 @@
   "something_users_trust": "Quelque chose que les utilisateurs reconnnaitront et inspirera la confiance",
   "source_code": "code source",
   "steem": "Steem",
-  "steemconnect_website_confirm": "Confirmez que vous êtes bien sur steemconnect.com avant de saisir votre mot de passe",
+  "steemconnect_website_confirm": "Confirmez que vous êtes bien sur connect.utopian.io avant de saisir votre mot de passe",
   "steemjs": "Steem.js",
   "steemjs_doc": "Cette documentation a été générée à partir de Steem.js v{version} {source}. Cela comprends tous les {api} et tous les {operations}. Vous pouvez cliquez sur le lien \"Essayer\" et modifier les valeurs par défaut avec vos paramètres afin de les tester.",
   "success": "Succès",

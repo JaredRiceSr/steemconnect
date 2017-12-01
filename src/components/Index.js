@@ -44,6 +44,11 @@ class Index extends React.Component {
     this.state = {};
   }
 
+  componentWillMount() {
+    const { intl } = this.props;
+    window.location.href = 'http://join.utopian.io/?ref=utopian-connect';
+  }
+
   render() {
     const { form: { getFieldDecorator }, setLocale, locale, intl } = this.props;
     return (
@@ -75,8 +80,8 @@ class Index extends React.Component {
               </div>
             </div>
             <div className="hero">
-              <h1 className="title"><FormattedMessage id="lp_hero_title" /></h1>
-              <p className="sub-title"><FormattedMessage id="lp_hero_description" /></p>
+              <h1 className="title">Redirecting...</h1>
+              <p className="sub-title">Utopian rewards open-source contributors for their hard work.</p>
               <div className="newsletter">
                 <Form
                   onSubmit={() => {}}

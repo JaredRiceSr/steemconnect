@@ -1,35 +1,75 @@
-[![CircleCI Build Status](https://circleci.com/gh/steemit/sc2.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/steemit/sc2)
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/steemconnect/localized.svg)](https://crowdin.com/project/steemconnect)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/steemit/sc2/dev/LICENSE)
-[![SteemConnect channel on Discord](https://img.shields.io/badge/chat-discord-738bd7.svg)](https://discord.gg/G95rNZs)
+# Utopian Connect
 
-# SteemConnect v2
+[Utopian.io](https://utopian.io)'s premier account connection and identity layer service.
+
+Based on a fork of [SteemConnect](https://github.com/steemit/steemconnect).
 
 ## Install
 
-Download and install Node.js >= 7.7.1 then run
-```
+0. Clone this repository locally and `cd` into it.
+1. Download and install Node.js >= 7.7.1 then run
+``` 
 npm install
 ```
 
-Add config vars
-```
-BROADCASTER_USERNAME = Main Steem account holding posting permissions e.g 'steemconnect'
-BROADCASTER_POSTING_WIF = Posting wif of the main account
+2.  Create a `.env` file:
+```js
+BROADCASTER_USERNAME = Main Steem account holding posting permissions e.g 'utopian-io'
+BROADCASTER_POSTING_WIF = Posting WIF of the main account
 JWT_SECRET = Random string
-DATABASE_URL = PostgreSQL database URL
-DATABASE_NAME = production
+DATABASE_URL = PostgreSQL database URL, e.g. localhost:5432
+DATABASE_NAME = connect
 DEBUG = sc2:*
 ```
 
-## Run
+## Make Database
+1. Install postgreSQL: 
+```sh
+brew install postgresql # install postgreSQL with Homebrew
+pg_ctl -D /usr/local/var/postgres start && brew services start postgresql # start postgreSQL
+postgres -V # confirm that postgreSQL is running
+```
+
+2. Now, run `psql postgres` on the command line to enter postgres's command prompter (you may or may not need `sudo`.)
+3. You are now in the PSQL command line. Try `postgres=# \du` to see the list of installed users.
+4. Set up Utopian Connect in the PSQL line:
+```js
+CREATE ROLE utopian WITH LOGIN PASSWORD 'utopian';
+```
+- This creates the main `utopian` POSTGRES account.
+```js
+\du
+```
+- Check to make sure the account was created. The attribute list should be empty.
+```js
+ALTER ROLE utopian SUPERUSER;
+```
+- Give the account permission to access databases freely.
+```js
+CREATE DATABASE sc2;
+```
+- Create a database with name `sc2`.
+```js
+GRANT ALL PRIVILEGES ON DATABASE sc2 TO utopian;
+```
+- Make sure the utopian account has permissions to the database.
+- Lastly, I recommend installing this free software called `postico` to manage the database. The GUI for Mac is very easy to use.
+
+## Setup Database
+```js
+npm install -g sequelize-cli
+```
+- Install Sequelize CLI
+```js
+sequelize db:seed:all
+```
+- Initialize DB with necessary data
+
+
+## Run Utopian Connect
 ```
 npm start
 ```
-
-## Demo
-
-Test demo app here: https://steemit.github.io/sc2-angular
 
 ## Api
 

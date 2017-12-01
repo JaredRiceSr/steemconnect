@@ -1,5 +1,5 @@
 {
-  "name": "sc2",
+  "name": "utopian-connect",
   "scripts": {
   },
   "env": {
@@ -21,7 +21,7 @@
     "SENTRY_DSN": {
       "required": true
     },
-    "DEBUG": "sc2:*",
+    "DEBUG": "connect:*",
     "DATABASE_NAME": "staging"
   },
   "formation": {

@@ -89,7 +89,7 @@ export default class Sign extends Component {
         {step !== 'loading' && <div className="Sign__content">
           <div className="Sign_frame">
             <div className="Sign__header">
-              <object data="/img/logo.svg" type="image/svg+xml" id="logo" />
+              <center className="topdown">Utopian Connect</center>
             </div>
             {step === 'signin' &&
             <div className="Sign__signin-warning"><FormattedMessage id="steemconnect_website_confirm" /></div>}
@@ -113,7 +113,7 @@ export default class Sign extends Component {
               {step === 'result' && error && <SignError error={error} resetForm={this.resetForm} />}
             </div>
             <div className="Sign__footer">
-              <Link to="/" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link>
+              <Link to="https://utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link>
             </div>
           </div>
         </div>}

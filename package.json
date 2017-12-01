@@ -1,5 +1,5 @@
 {
-  "name": "sc2",
+  "name": "utopian-connect",
   "version": "0.0.1",
   "engines": {
     "node": ">=8.1.4",
@@ -17,9 +17,9 @@
     "build-dev": "webpack --progress -p --config webpack/webpack.config.js",
     "postinstall": "npm run build"
   },
-  "pre-commit": [
-    "test"
-  ],
+  // "pre-commit": [
+  //   "test"
+  // ],
   "dependencies": {
     "antd": "^2.10.0",
     "babel-core": "^6.26.0",

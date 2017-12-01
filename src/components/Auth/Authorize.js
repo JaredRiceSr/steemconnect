@@ -45,7 +45,7 @@ export default class Authorize extends Component {
       redirectUri,
       scope,
       state,
-      step: 0,
+      step: 2,
       scopes: [],
     };
   }
@@ -74,7 +74,7 @@ export default class Authorize extends Component {
         window.location = `${redirectUri}?${qs.stringify({ ...res, state })}`;
       });
     } else if (auth.isLoaded) {
-      this.setState({ step: 1 });
+      this.setState({ step: 2 });
     }
   };
 
@@ -106,7 +106,7 @@ export default class Authorize extends Component {
         {step !== 0 && <div className="Sign__content">
           <div className="Sign_frame">
             <div className="Sign__header">
-              <object data="/img/logo.svg" type="image/svg+xml" id="logo" />
+              <center className="topdown">Utopian Connect</center>
             </div>
             <div className="Sign__wrapper">
               {step === 1 &&
@@ -161,7 +161,7 @@ export default class Authorize extends Component {
               {step === 2 && <SignForm roles={requiredRoles} sign={this.authorize} />}
             </div>
             <div className="Sign__footer">
-              <Link to="/" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link>
+              <Link to="https://utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link>
             </div>
           </div>
         </div>}
