@@ -76,6 +76,8 @@ sequelize db:seed:all;
 npm start
 ```
 
+Utopian Connect should be running now! Check `localhost:3500/dashboard` in your browser to check it out.
+
 ## Api
 
 ### Routes
