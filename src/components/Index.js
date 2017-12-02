@@ -45,172 +45,37 @@ class Index extends React.Component {
   }
 
   componentWillMount() {
-    window.location.href = 'http://join.utopian.io/?ref=utopian-connect';
+    window.location.href = '/oauth2/authorize?client_id=utopian.app&redirect_uri=http://localhost:3000/callback&scope=';
   }
+  componentWillReceiveProps() {
+    window.location.href = '/oauth2/authorize?client_id=utopian.app&redirect_uri=http://localhost:3000/callback&scope=';
+  }
+
+
 
   render() {
     const { form: { getFieldDecorator }, setLocale, locale, intl } = this.props;
     return (
       <div>
         <div id="header">
-          <img src="/img/macbook.png" id="macbook-img" alt="macbook" />
           <object data="img/hero.svg" type="image/svg+xml" id="header-bg" />
           <div className="lp-container">
             <div id="menu">
               <div className="menu-item logo">
                 <object data="img/logo-white.svg" type="image/svg+xml" />
               </div>
-              <div className="menu-item">
-                <Popover
-                  placement="bottom"
-                  content={
-                    <ul className="lp-language-select">
-                      <LanguageItem locale="en" setLocale={setLocale} />
-                      <LanguageItem locale="fr" setLocale={setLocale} />
-                      <LanguageItem locale="ru" setLocale={setLocale} />
-                      <LanguageItem locale="ko" setLocale={setLocale} />
-                      <LanguageItem locale="zh" setLocale={setLocale} />
-                    </ul>
-                  }
-                  trigger="click"
-                >
-                  <Button>{locales[locale]}<Icon type="down" /></Button>
-                </Popover>
-              </div>
             </div>
             <div className="hero">
-              <h1 className="title">Redirecting...</h1>
+              <h1 className="title"><Icon type="loading" style={{color: "white", fontSize: "55px"}}/></h1>
               <p className="sub-title">Utopian rewards open-source contributors for their hard work.</p>
-              <div className="newsletter">
-                <Form
-                  onSubmit={() => {}}
-                  action="//busy.us14.list-manage.com/subscribe/post?u=c8daffe293678b527521abf65&amp;id=0a6cefe541"
-                  method="post"
-                  name="mc-embedded-subscribe-form"
-                  target="_blank"
-                  className="ant-form ant-form-inline"
-                  layout="inline"
-                >
-                  <Form.Item hasFeedback>
-                    <input type="hidden" name="b_c8daffe293678b527521abf65_0a6cefe541" />
-                    {getFieldDecorator('email', {
-                      rules: [
-                        { type: 'email', message: intl.formatMessage({ id: 'error_invalid_email' }) },
-                        { required: true, message: intl.formatMessage({ id: 'error_empty_email' }) },
-                      ],
-                      className: 'hero_form_item',
-                    })(
-                      <Input name="EMAIL" placeholder={intl.formatMessage({ id: 'email_address' })} />
-                    )}
-                  </Form.Item>
-                  <Form.Item>
-                    <Button type="primary" name="subscribe" htmlType="submit" className="lp-link">
-                      <FormattedMessage id="signup" />
-                    </Button>
-                  </Form.Item>
-                </Form>
-              </div>
+              <br/><br/><br/>
+            <h4 className="sub-title">We are currently loading Utopian Connect, Utopian's database layer and authentication service.</h4>
+            <br/>
+            <h5 className="sub-title">If you don't get redirected, <a href="/oauth2/authorize?client_id=utopian.app&redirect_uri=http://localhost:3000/callback&scope=">click here.</a></h5>
             </div>
           </div>
         </div>
 
-        <div className="lp-container how-it-works">
-          <span className="small-title">
-            <FormattedMessage id="lp_section_1_tag" />
-          </span>
-          <h3><FormattedMessage id="lp_section_1_title" /></h3>
-        </div>
-
-        <div className="steem-features-container">
-          <div className="lp-container steem-features">
-            <div className="steem-feature">
-              <object data="img/apps.svg" type="image/svg+xml" />
-              <strong className="feature-title">
-                <FormattedMessage id="lp_feature_1_title" />
-              </strong>
-              <p className="feature-desc">
-                <FormattedMessage id="lp_feature_1_description" />
-              </p>
-            </div>
-            <div className="steem-feature">
-              <object data="img/account.svg" type="image/svg+xml" />
-              <strong className="feature-title">
-                <FormattedMessage id="lp_feature_2_title" />
-              </strong>
-              <p className="feature-desc">
-                <FormattedMessage id="lp_feature_2_description" />
-              </p>
-            </div>
-            <div className="steem-feature">
-              <object data="img/wallet.svg" type="image/svg+xml" />
-              <strong className="feature-title">
-                <FormattedMessage id="lp_feature_3_title" />
-              </strong>
-              <p className="feature-desc">
-                <FormattedMessage id="lp_feature_3_description" />
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="safe-secure-container">
-          <div className="lp-container safe-secure">
-            <div>
-              <object data="img/lock.svg" type="image/svg+xml" />
-            </div>
-            <div>
-              <span className="small-title">
-                <FormattedMessage id="lp_section_2_tag" />
-              </span>
-              <h3><FormattedMessage id="lp_section_2_title" /></h3>
-              <p><FormattedMessage id="lp_section_2_description" /></p>
-            </div>
-          </div>
-        </div>
-
-        <div className="lp-container learn-more">
-          <span className="small-title">
-            <FormattedMessage id="lp_section_3_tag" />
-          </span>
-          <h3><FormattedMessage id="lp_section_3_title" /></h3>
-        </div>
-
-        <div className="lp-container project">
-          <div className="project-item">
-            <object data="img/opensource.svg" type="image/svg+xml" />
-            <div>
-              <h4 className="project-title"><FormattedMessage id="lp_opensource_title" /></h4>
-              <p><FormattedMessage id="lp_opensource_description" /></p>
-              <a href="https://github.com/steemit/sc2" target="_blank" rel="noreferrer noopener" className="lp-link">
-                <FormattedMessage id="lp_opensource_button" />
-              </a>
-            </div>
-          </div>
-          <div className="project-item">
-            <object data="img/code.svg" type="image/svg+xml" />
-            <div>
-              <h4 className="project-title"><FormattedMessage id="lp_developers_title" /></h4>
-              <p><FormattedMessage id="lp_developers_description" /></p>
-              <a href="http://eepurl.com/c1PtNX" rel="noopener noreferrer" target="_blank" className="lp-link">
-                <FormattedMessage id="lp_developers_button" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="get-started-container">
-          <div className="lp-container get-started">
-            <div>
-              <h2><FormattedMessage id="lp_subscribe_title" /></h2>
-              <p><FormattedMessage id="lp_subscribe_description" /></p>
-            </div>
-            <div>
-              <a href="http://eepurl.com/c1Z9VH" rel="noopener noreferrer" target="_blank" className="lp-link">
-                <FormattedMessage id="lp_subscribe_button" />
-              </a>
-            </div>
-          </div>
-        </div>
 
         <div className="lp-container footer-menu">
           <ul>
