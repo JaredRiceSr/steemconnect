@@ -20,6 +20,7 @@ export JWT_SECRET=[RANDOM STRING HERE]
 export DATABASE_URL=localhost:5432
 export STEEMJS_URL='https://api.steemit.com'
 export DEBUG = sc2:*
+export PORT=3500
 ```
 
 ## Make Database
