@@ -1,6 +1,0 @@
-BROADCASTER_USERNAME = utopian-io
-BROADCASTER_POSTING_WIF = <posting-key-here>
-JWT_SECRET = <random-string-here>
-DATABASE_URL = localhost:5432
-DATABASE_NAME = sc2
-DEBUG = sc2:*

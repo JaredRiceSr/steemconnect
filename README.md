@@ -12,14 +12,14 @@ Based on a fork of [SteemConnect](https://github.com/steemit/steemconnect).
 npm install
 ```
 
-2.  Create a `.env` file:
+2.  Set these Environment variables like so: (you must use the `export` command)
 ```js
-BROADCASTER_USERNAME = Main Steem account holding posting permissions e.g 'utopian-io'
-BROADCASTER_POSTING_WIF = Posting WIF of the main account
-JWT_SECRET = Random string
-DATABASE_URL = PostgreSQL database URL, e.g. localhost:5432
-DATABASE_NAME = connect
-DEBUG = sc2:*
+export BROADCASTER_USERNAME=utopian-io
+export BROADCASTER_POSTING_WIF='[POSTING WIF HERE]'
+export JWT_SECRET=[RANDOM STRING HERE]
+export DATABASE_URL=localhost:5432
+export STEEMJS_URL='https://api.steemit.com'
+export DEBUG = sc2:*
 ```
 
 ## Make Database

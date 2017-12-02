@@ -45,7 +45,6 @@ class Index extends React.Component {
   }
 
   componentWillMount() {
-    const { intl } = this.props;
     window.location.href = 'http://join.utopian.io/?ref=utopian-connect';
   }
 
