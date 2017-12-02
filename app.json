@@ -21,7 +21,7 @@
     "SENTRY_DSN": {
       "required": true
     },
-    "DEBUG": "connect:*",
+    "DEBUG": "sc2:*",
     "DATABASE_NAME": "staging"
   },
   "formation": {
