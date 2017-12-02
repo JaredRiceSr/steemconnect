@@ -4,15 +4,15 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('apps', [
       {
-        client_id: 'busy.app',
+        client_id: 'utopian.app',
         secret: 'secretkey-abc-123',
-        owner: 'siol',
-        redirect_uris: JSON.stringify(['http://localhost:3000/demo', 'http://localhost:3000', 'https://sc2-angular.herokuapp.com', 'https://v2.steemconnect.com/demo', 'https://busy.org/callback']),
-        name: 'Busy.org',
-        description: 'Ensuring compensation for the creators of value',
+        owner: 'mooncryption',
+        redirect_uris: JSON.stringify(['http://localhost:\/demo', 'http://localhost:3000/callback', 'https://utopian.io/callback', 'https://v2.steemconnect.com/demo', 'http://localhost:3000']),
+        name: 'utopian.io',
+        description: 'Rewarding open-source contributors for their work',
         icon: 'https://byteball.co/img/logo.jpg',
-        website: 'https://busy.org',
-        beneficiaries: JSON.stringify([{ account: 'busy.org', weight: 1500 }]),
+        website: 'https://utopian.io',
+        beneficiaries: JSON.stringify([]),
         disabled: false,
         created_at: new Date(),
         updated_at: new Date(),

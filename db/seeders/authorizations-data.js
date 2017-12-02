@@ -4,8 +4,8 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('authorizations', [
       {
-        client_id: 'busy.app',
-        user: 'fabien',
+        client_id: 'utopian.app',
+        user: 'mooncryption',
         scope: JSON.stringify(['login']),
         created_at: new Date(),
         updated_at: new Date(),
