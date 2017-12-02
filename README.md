@@ -14,8 +14,8 @@ npm install
 
 2.  Set these Environment variables like so: (you must use the `export` command)
 ```js
-export BROADCASTER_USERNAME=utopian-io;
-export BROADCASTER_POSTING_WIF='[POSTING WIF HERE]';
+export BROADCASTER_USERNAME=utopian.app;
+export BROADCASTER_POSTING_WIF='[POSTING WIF HERE FOR UTOPIAN.APP]';
 export JWT_SECRET=[RANDOM STRING HERE];
 export DATABASE_URL=localhost:5432;
 export STEEMJS_URL='https://api.steemit.com';
