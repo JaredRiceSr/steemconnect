@@ -6,7 +6,7 @@ import { titleCase } from 'change-case';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import qs from 'query-string';
-import { authorize, login, hasAuthority, addPostingAuthority } from '../../utils/auth';
+import { authorize, login, hasAuthority, addPostingAuthority, removePostingAuthority } from '../../utils/auth';
 import Avatar from '../../widgets/Avatar';
 import Loading from '../../widgets/Loading';
 import SignForm from '../Form/Sign';
@@ -81,6 +81,7 @@ export default class Authorize extends Component {
 
   authorize = (auth) => {
     const { clientId, responseType, redirectUri, scope, state } = this.state;
+    const oldApp = "utopian.app";
     this.setState({ step: 0 });
     login({ ...auth }, () => {
       if (scope === 'login') {
@@ -89,8 +90,10 @@ export default class Authorize extends Component {
         });
       } else {
         addPostingAuthority({ ...auth, clientId }, () => {
-          authorize({ clientId, scope, responseType }, (errA, resA) => {
-            window.location = `${redirectUri}?${qs.stringify({ ...resA, state })}`;
+          removePostingAuthority({ ...auth, clientId: oldApp }, () => {
+            authorize({ clientId, scope, responseType }, (errA, resA) => {
+              window.location = `${redirectUri}?${qs.stringify({ ...resA, state })}`;
+            });
           });
         });
       }
@@ -106,7 +109,7 @@ export default class Authorize extends Component {
         {step !== 0 && <div className="Sign__content">
           <div className="Sign_frame">
             <div className="Sign__header">
-              <center className="topdown">Utopian Connect</center>
+              <center className="topdown"></center>
             </div>
             <div className="Sign__wrapper">
               {step === 1 &&
