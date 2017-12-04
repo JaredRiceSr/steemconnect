@@ -2,7 +2,7 @@
 
 [Utopian.io](https://utopian.io)'s premier account connection and identity layer service.
 
-Based on a fork of [SteemConnect](https://github.com/steemit/steemconnect), adapted for Utopian.
+Based on a fork of [SteemConnect](https://github.com/steemit/steemconnect) (a Steemit Inc / Busy Project), adapted for Utopian.
 
 ## Install
 
