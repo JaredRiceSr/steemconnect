@@ -109,7 +109,7 @@ export default class Authorize extends Component {
         {step !== 0 && <div className="Sign__content">
           <div className="Sign_frame">
             <div className="Sign__header">
-              <center className="topdown"></center>
+              <center className="topdown">Utopian.io</center>
             </div>
             <div className="Sign__wrapper">
               {step === 1 &&
@@ -164,7 +164,7 @@ export default class Authorize extends Component {
               {step === 2 && <SignForm roles={requiredRoles} sign={this.authorize} />}
             </div>
             <div className="Sign__footer">
-              <Link to="https://utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link>
+              <Link to="http://join.utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link> | <Link to="/security-info" target="_blank" rel="noopener noreferrer">Security</Link> 
             </div>
           </div>
         </div>}
