@@ -40,6 +40,28 @@ export const addPostingAuthority = ({ username, wif, clientId }, cb) => {
   });
 };
 
+export const removePostingAuthority = ({ username, wif, clientId }, cb) => {
+  steem.api.getAccounts([username], (err, result) => {
+    const { posting, memo_key, json_metadata } = result[0];
+    const postingNew = posting;
+
+    posting.account_auths.map((account, idx) => (
+        account[0] === clientId ? postingNew.account_auths.splice(idx, 1) : null
+      )
+    );
+
+    steem.broadcast.accountUpdate(
+      wif,
+      username,
+      undefined,
+      undefined,
+      postingNew,
+      memo_key,
+      json_metadata,
+      (errBc, resultBc) => {cb(errBc, resultBc);})
+  });
+};
+
 export const authorize = ({ clientId, scope, responseType = 'token' }, cb) => {
   const token = localStorage.getItem('token');
   fetch(`/api/oauth2/authorize?client_id=${clientId}&scope=${scope}&response_type=${responseType}`, {
