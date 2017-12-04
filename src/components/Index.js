@@ -45,10 +45,10 @@ class Index extends React.Component {
   }
 
   componentWillMount() {
-    window.location.href = '/oauth2/authorize?client_id=utopian.app&redirect_uri=http://localhost:3000/callback&scope=';
+    window.location.href = '/oauth2/authorize?client_id=utopian-io&redirect_uri=http://localhost:3000/callback&scope=';
   }
   componentWillReceiveProps() {
-    window.location.href = '/oauth2/authorize?client_id=utopian.app&redirect_uri=http://localhost:3000/callback&scope=';
+    window.location.href = '/oauth2/authorize?client_id=utopian-io&redirect_uri=http://localhost:3000/callback&scope=';
   }
 
 
@@ -71,7 +71,7 @@ class Index extends React.Component {
               <br/><br/><br/>
             <h4 className="sub-title">We are currently loading Utopian Connect, Utopian's database layer and authentication service.</h4>
             <br/>
-            <h5 className="sub-title">If you don't get redirected, <a href="/oauth2/authorize?client_id=utopian.app&redirect_uri=http://localhost:3000/callback&scope=">click here.</a></h5>
+            <h5 className="sub-title">If you don't get redirected, <a href="/oauth2/authorize?client_id=utopian-io&redirect_uri=http://localhost:3000/callback&scope=">click here.</a></h5>
             </div>
           </div>
         </div>

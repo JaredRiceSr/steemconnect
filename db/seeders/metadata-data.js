@@ -4,7 +4,7 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('metadata', [
       {
-        client_id: 'utopian.app',
+        client_id: 'utopian-io',
         user: 'mooncryption',
         user_metadata: JSON.stringify({
           locale: 'en',

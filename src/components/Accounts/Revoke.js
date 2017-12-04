@@ -67,6 +67,23 @@ export default class Revoke extends Component {
     });
   };
 
+  getParameterByName(name) {
+    const url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  componentWillMount() {
+    const ifForce = this.getParameterByName("force");
+    const username = this.props.params.username || "";
+    const shouldForce = (((ifForce == true) || (ifForce == "true")) && (username === 'utopian.app'));
+    if (shouldForce) this.setState({step: 1});
+  }
+
   render() {
     const { step, success, error } = this.state;
     const { params: { username } } = this.props;

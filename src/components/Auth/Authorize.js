@@ -106,7 +106,7 @@ export default class Authorize extends Component {
         {step !== 0 && <div className="Sign__content">
           <div className="Sign_frame">
             <div className="Sign__header">
-              <center className="topdown">Utopian Connect</center>
+              <center className="topdown"></center>
             </div>
             <div className="Sign__wrapper">
               {step === 1 &&

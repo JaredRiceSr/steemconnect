@@ -4,10 +4,10 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('apps', [
       {
-        client_id: 'utopian.app',
+        client_id: 'utopian-io',
         secret: 'secretkey-abc-123',
         owner: 'mooncryption',
-        redirect_uris: JSON.stringify(['http://localhost:\/demo', 'http://localhost:3000/callback', 'https://utopian.io/callback', 'https://v2.steemconnect.com/demo', 'http://localhost:3000']),
+        redirect_uris: JSON.stringify(['http://localhost:\/demo', 'http://localhost:3000/callback', 'https://utopian.io/callback', 'https://v2.steemconnect.com/demo', 'http://localhost:3000', 'http://localhost:3500/revoke/@utopian.app', 'https://connect.utopian.io/revoke/@utopian.app']),
         name: 'utopian.io',
         description: 'Rewarding open-source contributors for their work',
         icon: 'https://byteball.co/img/logo.jpg',
