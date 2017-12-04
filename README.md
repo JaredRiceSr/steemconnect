@@ -2,9 +2,11 @@
 
 [Utopian.io](https://utopian.io)'s premier account connection and identity layer service.
 
-Based on a fork of [SteemConnect](https://github.com/steemit/steemconnect) (a Steemit Inc / Busy Project), adapted for Utopian.
+Based on a fork of [SteemConnect](https://github.com/steemit/steemconnect) (a Steemit Inc + Busy Project), adapted and modified for Utopian.
 
-## Install
+## Installation
+Follow the four sections below to install and run Utopian Connect!
+### A. Configure Node
 
 0. Clone this repository locally and `cd` into it.
 1. Download and install Node.js >= 7.7.1 then run
@@ -14,8 +16,8 @@ npm install
 
 2.  Set these Environment variables like so: (you must use the `export` command)
 ```js
-export BROADCASTER_USERNAME=utopian-io;
-export BROADCASTER_POSTING_WIF='[POSTING WIF HERE FOR @UTOPIAN-IO]';
+export BROADCASTER_USERNAME='[YOUR STEEM ACCOUNT NAME, example: utopian-io]';
+export BROADCASTER_POSTING_WIF='[YOUR POSTING WIF FOR THE ABOVE ACCOUNT]';
 export JWT_SECRET=[RANDOM STRING HERE];
 export DATABASE_URL=localhost:5432;
 export STEEMJS_URL='https://api.steemit.com';
@@ -23,7 +25,7 @@ export DEBUG='sc2:*';
 export PORT=3500;
 ```
 
-## Make Database
+### B. Make the Database
 1. Install postgreSQL: 
 ```sh
 brew install postgresql # install postgreSQL with Homebrew
@@ -60,7 +62,7 @@ GRANT ALL PRIVILEGES ON DATABASE sc2 TO utopian;
 ```
 - Quit the PostGres command prompter.
 
-## Setup Database
+### C. Setup the Database
 ```js
 npm install -g sequelize-cli
 ```
@@ -71,44 +73,11 @@ sequelize db:seed:all;
 ```
 - Initialize DB with necessary data
 
-## Run Utopian Connect
+### D. Run the Project
 ```
 npm start
 ```
 
-Utopian Connect should be running now! Check `localhost:3500/dashboard` in your browser to check it out.
+Utopian Connect should be running now, and the webpack should be built.
 
-## Api
-
-### Routes
-
-*/api/me* - Get user profile (require user or app token)
-
-*/api/broadcast* - Broadcast posting operation for user (require app token)
-
-## OAuth2
-*/api/oauth2/authorize* - Issue new app token (require user token)
-
-## Tokens
-Tokens are created with JWT, the payload is public. Here is how it look:
-
-### Token for user
-```
-{
-  role: 'user',
-  user: 'guest'
-}
-```
-The token hash is saved on user localStorage once he login.
-
-### Token for application
-```
-{
-  role: 'app',
-  proxy: 'example',
-  user: 'guest',
-  scope: ['vote', 'comment']
-}
-```
-
-The token hash is sent to the application once user authorize the application.
+Visit `localhost:3500` or `localhost:3500/dashboard` in your browser to check it out
