@@ -164,7 +164,7 @@ export default class Authorize extends Component {
               {step === 2 && <SignForm roles={requiredRoles} sign={this.authorize} />}
             </div>
             <div className="Sign__footer">
-              <Link to="http://join.utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link> | <Link to="/security-info" target="_blank" rel="noopener noreferrer">Security</Link> 
+              <Link to="http://join.utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link> | <Link to="/security" target="_blank" rel="noopener noreferrer">Security</Link> 
             </div>
           </div>
         </div>}
