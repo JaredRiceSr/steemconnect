@@ -114,7 +114,7 @@ export default class Sign extends Component {
               {step === 'result' && error && <SignError error={error} resetForm={this.resetForm} />}
             </div>
             <div className="Sign__footer">
-            <Link to="http://join.utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link> | <Link to="/security-info" target="_blank" rel="noopener noreferrer">Security</Link> 
+            <Link to="http://join.utopian.io/?ref=utopian-connect" target="_blank" rel="noopener noreferrer"><FormattedMessage id="about_steemconnect" /></Link> | <Link to="/security" target="_blank" rel="noopener noreferrer">Security</Link> 
             </div>
           </div>
         </div>}
